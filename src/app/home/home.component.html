@@ -1,0 +1,47 @@
+<div class="d-flex border border-light" style="height: fit-content;">
+    <div class="sidebar p-3 d-flex flex-column" style="width: 200px; height: 90vh;background: url(https://static.vecteezy.com/system/resources/previews/000/184/923/original/vector-orange-wavy-background-with-abstract-shapes.jpg); background-size: cover; background-position: right;">
+        <a routerLink="home" class="text-dark fw-bolder mt-2" style="margin-left: 20px; text-decoration: none;"> HOME </a>
+        <a routerLink="/students" class="text-dark fw-bolder mt-2" style="margin-left: 20px; text-decoration: none;"> STUDENTS </a>
+
+        <button (click)="logout()" class="btn mt-auto text-light fw-bolder"> LOGOUT <i class="fa-solid fa-right-from-bracket ms-2"></i></button>
+    </div>
+    <div class="dashboard border border-light w-100">
+        <div class="fstrow" style="height: 13vh;">
+             <h1 class="m-3 fs-1">{{adminName}} is here... </h1> 
+        </div>
+        <div class=" scndrow d-flex mt-1" style="height: 76.5vh;">
+            <div class="col-lg-8">
+                <div class="row1 d-flex m-1">
+                    <div class="col-lg-6 m-1" style="height: 40vh;">
+                        <app-chart></app-chart>
+                    </div>
+                    <div class="col-lg-6 m-3" style="height: 30vh; width: 45%;">
+                        <div class="p-3" style="color: #c55418;"> <h2> Totel Students : {{totalStudentCount}} </h2></div>
+                        <div class="d-flex justify-content-between p-2"  style="color: #d97a2b;">
+                            <h3> Active Students : {{totalActiveStudent}} </h3>
+                            <h3> Inactive Students : {{totalInactiveStudent}}</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row2 d-flex m-2">
+                    <div class="col-lg-6 m-1" style="height: 10vh; width: 40%;">
+                        <app-inline-calender></app-inline-calender>
+                    </div>
+                    <div class="col-lg-6" style="height: 10vh; width: 40%; margin-left: 18.5%; margin-top: 5px;">
+                        <app-weather></app-weather>
+                    </div>
+                </div>
+                <div class="row3 m-1 d-flex" style="height: 15vh;">
+                    <h3 class="mt-4 ms-5" style="color: #c55418; font-weight: bolder;">Upcoming Events : </h3>
+                     <ul style="margin: 35px 0px 0px 15%; color: #d97a2b; font-weight: bold;">
+                        <li class="fs-5"> Arts Festivel : December 12,13,14 </li>
+                        <li class="fs-5"> Sports Meet : November 24,25</li>
+                     </ul>
+                </div>
+            </div>
+            <div class="col-lg-4" style="height: 60vh;">
+                <app-edit-admin (onUpdate)="updateAdminName($event)"></app-edit-admin>
+            </div>
+        </div>
+    </div>
+</div>

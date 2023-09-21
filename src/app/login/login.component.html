@@ -1,0 +1,26 @@
+<div class="head">
+    <h1 style="margin-left: 38%;margin-top: 100px;"> Login Here </h1>
+</div>
+<div class="row mt-3">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-3">
+        <img [src]="url" alt="loginImg" width="250px" height="250px">
+    </div>
+    <div class="col-lg-3">
+        <div class="form-floating mb-3 mt-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="User Name" name="username" [(ngModel)]="username">
+            <label for="floatingInput">User Name</label>
+        </div>
+        <div class="form-floating mt-3">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" [(ngModel)]="password">
+            <label for="floatingPassword">Password</label>
+        </div>
+        <div class="text-center">
+            <button (click)="login()" class="btn text-light mt-4 w-50" style="background-color: #f58617;"> Login </button>
+        </div>
+        <div class="text-center mt-3">
+            <a href=""> Forgot Password</a>
+        </div>
+    </div>
+    <div class="col-lg-3"></div>
+</div>

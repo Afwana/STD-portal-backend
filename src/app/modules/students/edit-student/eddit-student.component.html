@@ -1,0 +1,51 @@
+<div class="d-flex border border-light">
+    <div class="sidebar p-3 d-flex flex-column" style="width: 200px; height: 90vh;background: url(https://static.vecteezy.com/system/resources/previews/000/184/923/original/vector-orange-wavy-background-with-abstract-shapes.jpg); background-size: cover; background-position: right;">
+        <a routerLink="/home" class="text-dark fw-bolder mt-2" style="margin-left: 20px; text-decoration: none;"> HOME </a>
+        <a routerLink="/students" class="text-dark fw-bolder mt-2" style="margin-left: 20px; text-decoration: none;"> STUDENTS </a>
+    </div>
+    <div class="dashboard border border-light w-100">
+        <div class="title">
+            <h1 class="m-4"> Edit Student </h1>
+        </div>
+        <div class="student-details mt-5 border rounded p-3 w-100">
+            <form #editStudentForm="ngForm">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="Student Id" name="id" #id="ngModel" [(ngModel)]="students.id" pattern="[0-9]*" required>
+                    <label for="floatingInput"> Student Id </label>
+                </div>
+                <!-- Invalid Id -->
+                <div *ngIf="id.invalid && id.touched" class="mb-3 text-danger"> *Invalid Id </div>
+    
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingName" placeholder="Student Name" name="name" #name="ngModel" [(ngModel)]="students.name" pattern="[ a-zA-Z ]*" required>
+                    <label for="floatingName">User Name</label>
+                </div>
+                <!-- invalid name -->
+                <div *ngIf="name.invalid && name.touched" class="mb-3 text-danger"> *Invalid Username </div>
+    
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingEmail" placeholder="Email" name="email" #email="ngModel" [(ngModel)]="students.Email" email required>
+                    <label for="floatingEmail">Email</label>
+                </div>
+                <!-- invalid Email -->
+                <div *ngIf="email.invalid && email.touched" class="mb-3 text-danger"> *Invalid Email Id </div>
+    
+                <div class="form-floating mb-3">
+                    <select id="floatingStatus" class="form-control" name="active" #active="ngModel" [(ngModel)]="students.active" required>
+                        <option disabled selected hidden value=""></option>
+                        <option value="1"> Active </option>
+                        <option value="0"> Inactive </option>
+                    </select>
+                    <label for="floatingStatus">Status</label>
+                </div>
+                <!-- invalid status -->
+                <div *ngIf="active.invalid && active.touched" class="mb-3 text-danger"> *Invalid Status </div>
+    
+                <div>
+                    <button (click)="cancelUpdate(students.id)" class="btn btn-warning"> Cencel </button>
+                    <button [disabled]="editStudentForm.invalid" (click)="updateStudent()" class="btn btn-success ms-5"> Save </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

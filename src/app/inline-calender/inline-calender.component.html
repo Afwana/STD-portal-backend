@@ -1,0 +1,17 @@
+<div class="d-flex">
+    <div>
+        <h4 class="m-2" style="color: #c55418;"> Date </h4>
+
+    </div>
+    <div class="m-2">
+        <mat-form-field>
+            <input matInput [matDatepicker]="datepicker" [(ngModel)]="selectedDate" style="font-size: 20px; font-weight: bolder;">
+            <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+            <mat-datepicker #datepicker></mat-datepicker>
+          </mat-form-field>
+          
+
+
+    </div>
+
+</div>
